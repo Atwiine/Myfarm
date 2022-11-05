@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AnimalSection.AnimalManagement">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Animal management"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:onClick="goBack"
+            android:layout_centerVertical="true"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+                android:id="@+id/back"
+                android:padding="10dp"
+                android:background="@drawable/bg_animal"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+ <androidx.core.widget.NestedScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         >
+
+
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         android:layout_margin="10dp"
+         android:background="@drawable/bg_animal"
+         >
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+
+             >
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="120dp"
+                 app:cardElevation="1dp"
+                 android:layout_margin="10dp"
+                 android:onClick="openCattleSection"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 >
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp">
+
+                     <TextView
+                         android:id="@+id/animal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_toEndOf="@id/aa1"
+                         android:fontFamily="@font/poppins_medium"
+                         android:text="Cattle\nmanagement"
+                         android:textColor="@color/black"
+                         android:textSize="14sp" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="40dp"
+                         android:layout_alignParentStart="true"
+android:layout_centerVertical="true"
+                         android:id="@+id/aa1"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:src="@drawable/cowss" />
+
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentEnd="true"
+                         android:layout_gravity="center_vertical"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:background="@drawable/bg_animal">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:padding="10dp"
+                             android:src="@drawable/ic_baseline_ads_click_24" />
+                     </RelativeLayout>
+                 </RelativeLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+         </LinearLayout>
+
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             >
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="120dp"
+                 app:cardElevation="1dp"
+                 android:layout_margin="10dp"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 android:onClick="openGoatsSection"
+                 >
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp">
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerVertical="true"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:layout_toEndOf="@id/aa3"
+                         android:fontFamily="@font/poppins_medium"
+                         android:text="Goats\nmanagement"
+                         android:textColor="@color/black"
+                         android:textSize="14sp" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="40dp"
+                         android:layout_alignParentStart="true"
+                         android:layout_centerVertical="true"
+                         android:id="@+id/aa3"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:src="@drawable/goat" />
+
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentEnd="true"
+                         android:layout_gravity="center_vertical"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:background="@drawable/bg_animal">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:padding="10dp"
+                             android:src="@drawable/ic_baseline_ads_click_24" />
+                     </RelativeLayout>
+                 </RelativeLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+
+
+         </LinearLayout>
+     </LinearLayout>
+
+     </LinearLayout>
+ </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

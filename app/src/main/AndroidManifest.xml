@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo1"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo1"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Farm"
+        tools:targetApi="31"
+        android:allowClearUserData="true"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".StartActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name="com.example.farm.Register.Register" />
+        <activity android:name="com.example.farm.MainActivity" />
+        <activity android:name="com.example.farm.Register.Login" />
+        <activity android:name="com.example.farm.AnimalSection.AnimalManagement" />
+        <activity android:name="com.example.farm.AnimalSection.MilkActivity" />
+        <activity android:name="com.example.farm.AnimalSection.MilkResults" />
+        <activity android:name="com.example.farm.AnimalSection.MilkReports" />
+        <activity android:name="com.example.farm.MatookeSection.Matooke" />
+        <activity android:name="com.example.farm.MatookeSection.AddEmployees" />
+        <activity android:name="com.example.farm.AnimalSection.AnimalResults" />
+        <activity android:name="com.example.farm.MatookeSection.MilkMatookeMgt" />
+        <activity android:name="com.example.farm.Employees.Employees" />
+        <activity android:name="com.example.farm.Chat.SinglesChat" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

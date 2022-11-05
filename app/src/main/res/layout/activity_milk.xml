@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AnimalSection.MilkActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:id="@+id/top"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Milk management"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:onClick="goBack"
+            android:layout_centerVertical="true"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+                android:id="@+id/back"
+                android:padding="10dp"
+                android:background="@drawable/bg_employe"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+    <androidx.core.widget.NestedScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+        android:layout_below="@id/top"
+     >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         >
+
+
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical"
+         android:layout_margin="10dp"
+         android:background="@drawable/bg_employe"
+         >
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+
+             >
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="120dp"
+                 app:cardElevation="1dp"
+                 android:visibility="gone"
+                 android:layout_margin="10dp"
+                 android:onClick="openCattleSection"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 >
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp">
+
+                     <TextView
+                         android:id="@+id/animal"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_toEndOf="@id/aa1"
+                         android:fontFamily="@font/poppins_medium"
+                         android:text="Add milk data.."
+                         android:textColor="@color/black"
+                         android:textSize="14sp" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="40dp"
+                         android:layout_alignParentStart="true"
+android:layout_centerVertical="true"
+                         android:id="@+id/aa1"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:src="@drawable/ic_baseline_pets_24" />
+
+                     <com.google.android.material.card.MaterialCardView
+                         android:layout_width="60dp"
+                         android:layout_height="40dp"
+                         app:cardElevation="10dp"
+                         app:cardCornerRadius="20dp"
+                         android:layout_alignParentEnd="true"
+                         android:layout_centerVertical="true"
+                         android:layout_margin="5dp"
+                         app:cardBackgroundColor="@color/brown"
+                         >
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:layout_centerVertical="true"
+                             android:layout_toEndOf="@id/aa1"
+                             android:fontFamily="@font/poppins_medium"
+                             android:text="Add"
+                             android:textColor="@color/white"
+                             android:textSize="14sp" />
+                     </com.google.android.material.card.MaterialCardView>
+                 </RelativeLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+
+
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="120dp"
+                 app:cardElevation="1dp"
+                 android:layout_margin="10dp"
+               android:id="@+id/milkRecords"
+                 android:onClick="openMilkTimeline"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 >
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp">
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerVertical="true"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:layout_toEndOf="@id/aa2"
+                         android:fontFamily="@font/poppins_medium"
+                         android:text="View today's records"
+                         android:textColor="@color/black"
+                         android:textSize="14sp" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="40dp"
+                         android:layout_alignParentStart="true"
+                         android:layout_centerVertical="true"
+                         android:id="@+id/aa2"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:src="@drawable/folder" />
+
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentEnd="true"
+                         android:layout_gravity="center_vertical"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:background="@drawable/bg_employe">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:padding="10dp"
+                             android:src="@drawable/ic_baseline_ads_click_24" />
+                     </RelativeLayout>
+                 </RelativeLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 app:cardElevation="1dp"
+                 android:layout_margin="10dp"
+                 android:id="@+id/milktimeline"
+                 android:visibility="gone"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 >
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:orientation="vertical"
+                     android:layout_margin="10dp">
+
+                     <RelativeLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:orientation="horizontal"
+                         android:layout_margin="10dp">
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:layout_centerVertical="true"
+                             android:fontFamily="@font/poppins_medium"
+                             android:text="Please select one\nof the timeslots"
+                             android:textColor="@color/black"
+                             android:textSize="14sp" />
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:padding="5dp"
+                             android:layout_alignParentEnd="true"
+                             android:layout_centerVertical="true"
+                             android:layout_gravity="end"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:id="@+id/closemilktimelin"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:background="@drawable/bg_employe"
+                             android:src="@drawable/ic_baseline_close_24" />
+                     </RelativeLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_margin="10dp">
+                     <com.google.android.material.card.MaterialCardView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:layout_height="40dp"
+                         app:cardElevation="10dp"
+                         android:onClick="openMilkMorning"
+                         app:cardCornerRadius="20dp"
+                         android:layout_margin="5dp"
+                         app:cardBackgroundColor="@color/blue"
+                         >
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:layout_centerVertical="true"
+                             android:layout_gravity="center"
+                             android:layout_toEndOf="@id/aa1"
+                             android:fontFamily="@font/poppins_medium"
+                             android:text="Morning"
+                             android:textColor="@color/white"
+                             android:textSize="14sp" />
+                     </com.google.android.material.card.MaterialCardView>
+                     <com.google.android.material.card.MaterialCardView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:layout_height="40dp"
+                         app:cardElevation="10dp"
+                         app:cardCornerRadius="20dp"
+                         android:onClick="openMilkAfternoon"
+                         android:layout_margin="5dp"
+                         app:cardBackgroundColor="@color/blue"
+                         >
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_gravity="center"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:layout_centerVertical="true"
+                             android:layout_toEndOf="@id/aa1"
+                             android:fontFamily="@font/poppins_medium"
+                             android:text="Mid day"
+                             android:textColor="@color/white"
+                             android:textSize="14sp" />
+                     </com.google.android.material.card.MaterialCardView>
+                     <com.google.android.material.card.MaterialCardView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:layout_height="40dp"
+                         app:cardElevation="10dp"
+                         android:onClick="openMilkEvening"
+                         app:cardCornerRadius="20dp"
+                         android:layout_margin="5dp"
+                         app:cardBackgroundColor="@color/blue"
+                         >
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="10dp"
+                             android:layout_marginTop="10dp"
+                             android:layout_marginEnd="10dp"
+                             android:layout_marginBottom="10dp"
+                             android:layout_centerVertical="true"
+                             android:layout_toEndOf="@id/aa1"
+                             android:layout_gravity="center"
+                             android:fontFamily="@font/poppins_medium"
+                             android:text="Evening"
+                             android:textColor="@color/white"
+                             android:textSize="14sp" />
+                     </com.google.android.material.card.MaterialCardView>
+                 </LinearLayout>
+                 </LinearLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+
+         </LinearLayout>
+
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             >
+             <com.google.android.material.card.MaterialCardView
+                 android:layout_width="match_parent"
+                 android:layout_height="120dp"
+                 app:cardElevation="1dp"
+                 android:layout_margin="10dp"
+                 app:cardBackgroundColor="@color/white"
+                 app:cardCornerRadius="20dp"
+                 android:onClick="openMilkReports"
+                 >
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_margin="10dp">
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerVertical="true"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:layout_toEndOf="@id/aa3"
+                         android:fontFamily="@font/poppins_medium"
+                         android:text="Over all records"
+                         android:textColor="@color/black"
+                         android:textSize="14sp" />
+
+                     <ImageView
+                         android:layout_width="50dp"
+                         android:layout_height="40dp"
+                         android:layout_alignParentStart="true"
+                         android:layout_centerVertical="true"
+                         android:id="@+id/aa3"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:src="@drawable/businessreport" />
+
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentEnd="true"
+                         android:layout_gravity="center_vertical"
+                         android:layout_marginStart="10dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_centerVertical="true"
+                         android:layout_marginEnd="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:background="@drawable/bg_employe">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center"
+                             android:padding="10dp"
+                             android:src="@drawable/ic_baseline_ads_click_24" />
+                     </RelativeLayout>
+                 </RelativeLayout>
+             </com.google.android.material.card.MaterialCardView>
+
+
+
+         </LinearLayout>
+     </LinearLayout>
+
+     </LinearLayout>
+ </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>
