@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -53,5 +54,9 @@ public class MilkMatookeMgt extends AppCompatActivity {
 
     public void openMatookeSection(View view) {
         startActivity(new Intent(MilkMatookeMgt.this, Matooke.class));
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
     }
 }

@@ -55,4 +55,8 @@ dependencies {
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation'io.github.florent37:shapeofview:1.4.7'
     implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "com.airbnb.android:lottie:5.2.0"
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

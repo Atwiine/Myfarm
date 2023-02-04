@@ -23,6 +23,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Milk management"
@@ -159,7 +160,7 @@ android:layout_centerVertical="true"
                android:id="@+id/milkRecords"
                  android:onClick="openMilkTimeline"
                  app:cardBackgroundColor="@color/white"
-                 app:cardCornerRadius="20dp"
+                 app:cardCornerRadius="5dp"
                  >
                  <RelativeLayout
                      android:layout_width="match_parent"
@@ -223,7 +224,7 @@ android:layout_centerVertical="true"
                  android:id="@+id/milktimeline"
                  android:visibility="gone"
                  app:cardBackgroundColor="@color/white"
-                 app:cardCornerRadius="20dp"
+                 app:cardCornerRadius="5dp"
                  >
                  <LinearLayout
                      android:layout_width="match_parent"
@@ -262,7 +263,7 @@ android:layout_centerVertical="true"
                              android:layout_marginEnd="10dp"
                              android:layout_marginBottom="10dp"
                              android:background="@drawable/bg_employe"
-                             android:src="@drawable/ic_baseline_close_24" />
+                             android:src="@drawable/ic_baseline_close_2422" />
                      </RelativeLayout>
 
                  <LinearLayout
@@ -274,11 +275,11 @@ android:layout_centerVertical="true"
                          android:layout_width="0dp"
                          android:layout_weight="1"
                          android:layout_height="40dp"
-                         app:cardElevation="10dp"
+                         app:cardElevation="3dp"
                          android:onClick="openMilkMorning"
-                         app:cardCornerRadius="20dp"
+                         app:cardCornerRadius="5dp"
                          android:layout_margin="5dp"
-                         app:cardBackgroundColor="@color/blue"
+                         app:cardBackgroundColor="@color/purple_700"
                          >
                          <TextView
                              android:layout_width="wrap_content"
@@ -299,11 +300,11 @@ android:layout_centerVertical="true"
                          android:layout_width="0dp"
                          android:layout_weight="1"
                          android:layout_height="40dp"
-                         app:cardElevation="10dp"
-                         app:cardCornerRadius="20dp"
+                         app:cardElevation="3dp"
+                         app:cardCornerRadius="5dp"
                          android:onClick="openMilkAfternoon"
                          android:layout_margin="5dp"
-                         app:cardBackgroundColor="@color/blue"
+                         app:cardBackgroundColor="@color/purple_700"
                          >
                          <TextView
                              android:layout_width="wrap_content"
@@ -324,11 +325,11 @@ android:layout_centerVertical="true"
                          android:layout_width="0dp"
                          android:layout_weight="1"
                          android:layout_height="40dp"
-                         app:cardElevation="10dp"
+                         app:cardElevation="3dp"
                          android:onClick="openMilkEvening"
-                         app:cardCornerRadius="20dp"
+                         app:cardCornerRadius="5dp"
                          android:layout_margin="5dp"
-                         app:cardBackgroundColor="@color/blue"
+                         app:cardBackgroundColor="@color/purple_700"
                          >
                          <TextView
                              android:layout_width="wrap_content"
@@ -364,7 +365,7 @@ android:layout_centerVertical="true"
                  app:cardElevation="1dp"
                  android:layout_margin="10dp"
                  app:cardBackgroundColor="@color/white"
-                 app:cardCornerRadius="20dp"
+                 app:cardCornerRadius="5dp"
                  android:onClick="openMilkReports"
                  >
 

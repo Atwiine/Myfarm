@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,8 +14,10 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -41,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SinglesChat extends AppCompatActivity {
-
+//implements SingleChatAdapter.ItemClickListener
     RecyclerView recyclerView, frecyclerView;
     List<ChatModel> mData;
     List<fChatModel> fmData;
@@ -57,11 +60,14 @@ public class SinglesChat extends AppCompatActivity {
     ImageView sendBtn,image_nochat,sImage;
     TextView fphone, you, patient, no_chat,check_new,sending_chat,notsending_chat;
     Urls urls;
-
+    String getID,farmname;
+    Handler mHandler;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     /***
      * remove the un wanted toasts and correct the ones needed*/
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +79,7 @@ public class SinglesChat extends AppCompatActivity {
         HashMap<String, String> user = sessionManager.getUserDetail();
         getId = user.get(SessionManager.ID);
         usernames = user.get(SessionManager.FULLNAME);
+        farmname = user.get(SessionManager.FARMNAME);
 
         fphone = findViewById(R.id.farmer_phone);
         you = findViewById(R.id.you);
@@ -83,7 +90,7 @@ public class SinglesChat extends AppCompatActivity {
         messageText = findViewById(R.id.messageArea);
         sendBtn = findViewById(R.id.sendButton);
         image_nochat = findViewById(R.id.image_nochat);
-
+        farmname = user.get(SessionManager.FARMNAME);
 //        sName = findViewById(R.id.sName);
 //        sID = findViewById(R.id.sID);
 //        check_new = findViewById(R.id.check_new);
@@ -111,20 +118,67 @@ public class SinglesChat extends AppCompatActivity {
 
         //handle recyclerview
         recyclerView = findViewById(R.id.recycle_messages);
-        mData = new ArrayList<>();
+        mData = new ArrayList<ChatModel>();
         RecyclerView recyclerView = findViewById(R.id.recycle_messages);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
+//        adapter.setClickListener(this);
         adapter = new SingleChatAdapter(getApplicationContext(), mData);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+
+        mHandler=new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Clear();
+                        getSMS();
+
+                        mHandler.postDelayed(this, 1000);
+                    }
+                });
+            }
+        }).start();
+        // SetOnRefreshListener on SwipeRefreshLayout
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                getSMS();
+            }
+        });
 
         getSMS();
     }
 
-    private void sendSMS() {
+//    public void onItemClick(View view, int position) {
+//        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+//    }
+//
+//    public void onButtonClick(View view) {
+//        insertSingleItem();
+//    }
 
+
+    private void replaceOldListWithNewList() {
+        // clear old list
+        mData.clear();
+
+        // add new list
+        ArrayList<ChatModel> newList = new ArrayList<>();
+//        newList.add(mData);
+        mData.addAll(newList);
+
+        // notify adapter
+        adapter.notifyDataSetChanged();
+    }
+
+    private void sendSMS() {
         sending_chat.setVisibility(View.VISIBLE);
         final String scontact = usernames;
         final String message = messageText.getText().toString().trim();
@@ -164,6 +218,7 @@ public class SinglesChat extends AppCompatActivity {
                 params.put("sender", scontact);//name of the sender
                 params.put("userid", getId);//their id
                 params.put("message", message);// and message
+                params.put("farmname", farmname);
                 return params;
 
             }
@@ -205,6 +260,7 @@ public class SinglesChat extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("userid", getId);//use your own id to update if seen messages and has to be equal to
                 // receiver's id
+                params.put("farmname", farmname);
                 params.put("reciever_id", reciever_id);
                 return params;
 
@@ -217,7 +273,7 @@ public class SinglesChat extends AppCompatActivity {
 
     private void getSMS() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, urls.GET_SINGLE_MESSAGES,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, urls.GET_SINGLE_MESSAGES,
                 response -> {
                     try {
                         Log.i("tagconvertstr", "[" + response + "]");
@@ -230,10 +286,11 @@ public class SinglesChat extends AppCompatActivity {
                         } else {
                             for (int i = 0; i < sms.length(); i++) {
                                 JSONObject smsObjects = sms.getJSONObject(i);
-
+//                                Clear();
                                 String message = smsObjects.getString("message");
                                 String time = smsObjects.getString("time");
                                 String sender = smsObjects.getString("sender");
+                                String userid = smsObjects.getString("userid");
 
                                 progressBar.setVisibility(View.GONE);
                                 error_message.setVisibility(View.INVISIBLE);
@@ -243,7 +300,7 @@ public class SinglesChat extends AppCompatActivity {
                                         "reciever_name",
                                         sender,
                                         "image",
-                                        "reciever_id");
+                                        userid);
                                 mData.add(chatModel);
                             }
                         }
@@ -263,8 +320,15 @@ public class SinglesChat extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
             error_message.setVisibility(View.INVISIBLE);
             Toast.makeText(getApplicationContext(), "could not load messages, please check your internet connection and try again" , Toast.LENGTH_LONG).show();
-        });
-        Volley.newRequestQueue(this).add(stringRequest);
+        }){
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("farmname", farmname);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
     }
 
@@ -273,6 +337,8 @@ public class SinglesChat extends AppCompatActivity {
     public void Clear() {
         mData.clear();
         adapter.notifyDataSetChanged();
+//        adapter.notifyItemRangeChanged(mData);
+      ;
     }
 
     public void goBack(View view) {

@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.farm.Modals.EmployeeModel;
 import com.example.farm.Modals.MilkResultsModel;
 
 import com.example.farm.R;
@@ -26,24 +29,54 @@ import com.example.farm.R;
 import com.example.farm.Urls.Urls;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-public class MilkResultsAdapter extends RecyclerView.Adapter<MilkResultsAdapter.MilkViewHolder> {
+public class MilkResultsAdapter extends RecyclerView.Adapter<MilkResultsAdapter.MilkViewHolder> implements Filterable {
     Context context;
     public static  List<MilkResultsModel> mData;
     Urls urls;
-//    SessionManager sessionManager;
-    String  getTYPE;
-    String getId, idPost, teacher;
+    List<MilkResultsModel> milk_filter;
+    private final Filter examplefilter = new Filter() {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<MilkResultsModel> filterexample = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filterexample.addAll(milk_filter);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (MilkResultsModel marketsModel : milk_filter) {
+                    if (marketsModel.getTime().toLowerCase().contains(filterPattern)) {
+                        filterexample.add(marketsModel);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filterexample;
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            mData.clear();
+            mData.addAll((Collection<? extends MilkResultsModel>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
 
     public MilkResultsAdapter(Context context, List<MilkResultsModel> mData) {
         this.context = context;
         this.mData = mData;
         urls = new Urls();
-//        sessionManager = new SessionManager(context);
-//        HashMap<String, String> user = sessionManager.getUserDetail();
-//        getId = user.get(SessionManager.ID);
     }
 
 
@@ -91,14 +124,22 @@ public class MilkResultsAdapter extends RecyclerView.Adapter<MilkResultsAdapter.
                 break;
         }
 
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return examplefilter;
+    }
+
+    public void filterList(ArrayList<MilkResultsModel> filteredList) {
+        mData = filteredList;
+        notifyDataSetChanged();
+//        Clear();
     }
 
     public void clear() {
@@ -108,6 +149,11 @@ public class MilkResultsAdapter extends RecyclerView.Adapter<MilkResultsAdapter.
 
             notifyItemRangeRemoved(0, size);
         }
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    public void Clear() {
+        mData.clear();
+       notifyDataSetChanged();
     }
     public static class MilkViewHolder extends RecyclerView.ViewHolder {
 

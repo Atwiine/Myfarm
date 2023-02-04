@@ -95,7 +95,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="No results found pertaining to the selected time slot"
+                    android:text="No results found "
                     android:textColor="@color/purple_700"
                     android:textSize="12sp"
                     android:visibility="gone" />

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,21 +15,65 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farm.Modals.AnimalResultsModel;
+import com.example.farm.Modals.EmployeeModel;
 import com.example.farm.Modals.MilkResultsModel;
 import com.example.farm.R;
 import com.example.farm.Urls.Urls;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.datepicker.MaterialCalendar;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class AnimalResultsAdapter extends RecyclerView.Adapter<AnimalResultsAdapter.MilkViewHolder> {
+public class AnimalResultsAdapter extends RecyclerView.Adapter<AnimalResultsAdapter.MilkViewHolder> implements Filterable {
     Context context;
     public static  List<AnimalResultsModel> mData;
     Urls urls;
 //    SessionManager sessionManager;
     String  getTYPE;
     String getId, idPost, teacher;
+
+    List<AnimalResultsModel> animal_filter;
+
+
+    private final Filter examplefilter = new Filter() {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<AnimalResultsModel> filterexample = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filterexample.addAll(animal_filter);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (AnimalResultsModel marketsModel : animal_filter) {
+                    if (marketsModel.getGender().toLowerCase().contains(filterPattern)) {
+                        filterexample.add(marketsModel);
+                    }
+
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filterexample;
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            mData.clear();
+            mData.addAll((Collection<? extends AnimalResultsModel>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
+
+
 
     public AnimalResultsAdapter(Context context, List<AnimalResultsModel> mData) {
         this.context = context;
@@ -89,6 +135,17 @@ public class AnimalResultsAdapter extends RecyclerView.Adapter<AnimalResultsAdap
 
             notifyItemRangeRemoved(0, size);
         }
+    }
+
+
+    @Override
+    public Filter getFilter() {
+        return examplefilter;
+    }
+
+    public void filterList(ArrayList<AnimalResultsModel> filteredList) {
+        mData = filteredList;
+        notifyDataSetChanged();
     }
     public static class MilkViewHolder extends RecyclerView.ViewHolder {
 

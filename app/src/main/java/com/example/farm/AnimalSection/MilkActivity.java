@@ -2,6 +2,7 @@ package com.example.farm.AnimalSection;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -69,4 +70,9 @@ startActivity(mm);
         Intent mm = new Intent(MilkActivity.this,MilkResults.class);
         mm.putExtra("time",mmm);
         startActivity(mm);    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
+    }
+
 }

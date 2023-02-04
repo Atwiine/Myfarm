@@ -2,6 +2,7 @@ package com.example.farm.AnimalSection;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,5 +37,9 @@ public class AnimalManagement extends AppCompatActivity {
         Intent gg = new Intent(AnimalManagement.this,AnimalResults.class);
         gg.putExtra("type",type);
         startActivity(gg);
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
     }
 }

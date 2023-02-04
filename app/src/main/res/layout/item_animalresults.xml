@@ -14,7 +14,7 @@
          android:orientation="vertical"
          android:layout_margin="10dp"
          app:cardElevation="3dp"
-         app:cardCornerRadius="10dp"
+         app:cardCornerRadius="5dp"
          >
 
          <LinearLayout
@@ -105,7 +105,7 @@ android:visibility="gone"
                              android:layout_width="match_parent"
                              android:layout_height="1dp"
                              android:layout_margin="5dp"
-                             android:background="@color/brown"/>
+                             android:background="@color/purple_700"/>
                          <TextView
                              android:id="@+id/checker"
                              android:layout_width="wrap_content"
@@ -142,7 +142,7 @@ android:visibility="gone"
                              android:layout_width="match_parent"
                              android:layout_height="1dp"
                              android:layout_margin="5dp"
-                             android:background="@color/brown"/>
+                             android:background="@color/purple_700"/>
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
@@ -166,7 +166,7 @@ android:visibility="gone"
                              android:layout_width="match_parent"
                              android:layout_height="1dp"
                              android:layout_margin="5dp"
-                             android:background="@color/brown"/>
+                             android:background="@color/purple_700"/>
                          <LinearLayout
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"

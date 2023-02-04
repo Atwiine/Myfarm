@@ -17,16 +17,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Matooke &amp; Milk management"
-            android:textStyle="bold"
+            android:text="Plantain &amp; Milk management"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 
         <RelativeLayout
@@ -81,7 +82,7 @@
                         android:layout_margin="10dp"
                         android:onClick="openMatookeSection"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="20dp"
+                        app:cardCornerRadius="5dp"
                         >
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -144,7 +145,7 @@
                         android:layout_margin="10dp"
                         android:onClick="openMilkSection"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="20dp"
+                        app:cardCornerRadius="5dp"
                         >
                         <RelativeLayout
                             android:layout_width="match_parent"

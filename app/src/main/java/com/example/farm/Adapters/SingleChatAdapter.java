@@ -20,6 +20,7 @@ import com.example.farm.Urls.SessionManager;
 import com.example.farm.Urls.Urls;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -49,6 +50,13 @@ public class SingleChatAdapter extends RecyclerView.Adapter<SingleChatAdapter.Ch
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, final int position) {
         //        handle session manager
+
+//        notifyItemRangeChanged(position);
+
+//        notifyItemChanged(position);
+//        notifyItemInserted(position);
+//        notifyItemRemoved(position);
+
         sessionManager = new SessionManager(context);
         HashMap<String, String> user = sessionManager.getUserDetail();
         getId = user.get(SessionManager.ID);
@@ -107,8 +115,16 @@ public class SingleChatAdapter extends RecyclerView.Adapter<SingleChatAdapter.Ch
     @Override
     public int getItemCount() {
         return mData.size();
+
     }
 
+    public void resetData(ArrayList<ChatModel> programsList) {
+        this.mData = programsList;
+//        this.notifyDataSetChanged();
+//        notifyItemChanged(yourPosition);
+//        notifyItemInserted(yourPosition);
+//        notifyItemRemoved(yourPosition);
+    }
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
 
         TextView receiver_message, receiver_time, session_no, sender_no, receiver_no, sender_message, sender_time;

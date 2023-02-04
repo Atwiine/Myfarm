@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,10 +17,12 @@
         android:theme="@style/Theme.Farm"
         tools:targetApi="31"
         android:allowClearUserData="true"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".StartActivity"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,15 +41,25 @@
         <activity android:name="com.example.farm.AnimalSection.MilkResults" />
         <activity android:name="com.example.farm.AnimalSection.MilkReports" />
         <activity android:name="com.example.farm.MatookeSection.Matooke" />
-        <activity android:name="com.example.farm.MatookeSection.AddEmployees" />
+        <activity android:name="com.example.farm.Employees.ManagerProfile" />
         <activity android:name="com.example.farm.AnimalSection.AnimalResults" />
         <activity android:name="com.example.farm.MatookeSection.MilkMatookeMgt" />
         <activity android:name="com.example.farm.Employees.Employees" />
         <activity android:name="com.example.farm.Chat.SinglesChat" />
+        <activity android:name="com.example.farm.Register.AccountDetails" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

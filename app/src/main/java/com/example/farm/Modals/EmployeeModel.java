@@ -2,9 +2,10 @@ package com.example.farm.Modals;
 
 public class EmployeeModel {
 
-    String id, name,number,role,address,gender,nextofkin,contactnextofkim;
+    String id, name,number,role,address,gender,nextofkin,contactnextofkim,age;
 
-    public EmployeeModel(String id, String name, String number, String role, String address, String gender ,String nextofkin,String contactnextofkim) {
+    public EmployeeModel(String id, String name, String number, String role, String address,
+                         String gender ,String nextofkin,String contactnextofkim,String age) {
         this.id = id;
         this.name = name;
         this.number = number;
@@ -13,6 +14,7 @@ public class EmployeeModel {
         this.gender = gender;
         this.nextofkin = nextofkin;
         this.contactnextofkim = contactnextofkim;
+        this.age = age;
     }
 
     public String getId() {
@@ -77,5 +79,13 @@ public class EmployeeModel {
 
     public void setContactnextofkim(String contactnextofkim) {
         this.contactnextofkim = contactnextofkim;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }

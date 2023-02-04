@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:layout_margin="10dp"
         app:cardElevation="3dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         >
 
         <LinearLayout
@@ -111,7 +111,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/black"
+                        android:background="@color/purple_700"
                         android:layout_margin="5dp"/>
 
                     <TextView
@@ -136,7 +136,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/black"
+                        android:background="@color/purple_700"
                         android:layout_margin="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/black"
+                        android:background="@color/purple_700"
                         android:layout_margin="5dp"/>
 
                     <TextView

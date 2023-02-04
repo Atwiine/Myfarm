@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">farm</string>
+    <string-array name="gender">
+        <item>Select gender</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string-array name="milktime">
+        <item>Select time frame</item>
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
+
+
+    <string-array name="categoryCattle">
+        <item>Select animal gender</item>
+        <item>Bull</item>
+        <item>Cow</item>
+    </string-array>
+
+    <string-array name="categoryGoat">
+        <item>Select animal gender</item>
+        <item>Buck</item>
+        <item>Nanny</item>
+    </string-array>
+    <string name="save_img">Saved</string>
 </resources>

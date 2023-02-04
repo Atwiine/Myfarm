@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,18 +30,51 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
+                    android:visibility="gone"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="MyFarm"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/rr"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="My"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/rr"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Farm"
+                        android:textColor="@color/purple_700"
+                        android:textSize="20sp" />
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentEnd="false"
                     android:layout_centerVertical="true"
                     android:layout_margin="10dp">
 
@@ -48,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="openSettings"
-                        android:src="@drawable/ic_baseline_message"
+                        android:src="@drawable/searchs"
 
                         />
 
@@ -75,19 +110,34 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Hello, "
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="28sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/hellotxt"
+                    android:id="@+id/name"
                     android:layout_marginStart="10dp"
-                    android:drawableEnd="@drawable/ic_baseline_front_hand_24"
                     android:drawablePadding="10dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="Farmer"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="   Farmer"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@id/name"
+                    android:visibility="visible"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waving" />
 
             </RelativeLayout>
 
@@ -107,7 +157,7 @@
                         android:layout_weight="1"
                         android:layout_height="150dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/bg_animal"
+                        android:background="@drawable/bg_employe"
                         android:onClick="openAnimalManagement">
 
                         <TextView
@@ -134,8 +184,8 @@
 
                             <ImageView
                                 android:id="@+id/cows"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
@@ -144,8 +194,8 @@
                                 android:src="@drawable/cowss" />
 
                             <ImageView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
 
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
@@ -187,8 +237,8 @@
 
                             <ImageView
                                 android:id="@+id/milk"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
@@ -196,8 +246,8 @@
                                 android:src="@drawable/cow" />
 
                             <ImageView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
@@ -241,8 +291,8 @@
                             >
 
                             <ImageView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
@@ -283,8 +333,8 @@
 
                             <ImageView
 
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
